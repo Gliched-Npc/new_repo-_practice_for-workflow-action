@@ -16,7 +16,7 @@ jobs:
     
     - uses: actions/checkout@v4
     - name: Set up Python 3.10
-      uses: actions/setup-python@v3
+      uses: actions/setup-python@v4
       with:
         python-version: "3.10"
         
@@ -30,7 +30,7 @@ jobs:
       run: python test_train.py
 
     - name: upload model
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with: 
         name: Iris-model
         path: model/model.pkl
@@ -39,7 +39,7 @@ jobs:
       run: python monitor.py
 
     - name: Upload Data Drift
-      uses: action/upload-artifact@v3
+      uses: action/upload-artifact@v4
       with: 
         name: drift-report
         path: model/drift_report.html 
