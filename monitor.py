@@ -10,8 +10,7 @@ def monitor():
     
     current_x=reference.sample(5)
     current_y=model.predict(current_x)
-    current=pd.DataFrame({'X1':current_x.iloc[:,0],'Y': current_y})
-
+    current= current_x.copy()
     report=Report(metrics=[DataDriftPreset(drift_share=0.3)])
     report.run(reference_data=reference,current_data=current)
     report.save_html("model/drift_report.html")
