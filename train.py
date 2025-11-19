@@ -1,6 +1,7 @@
 from sklearn.ensemble import RandomForestClassifier
 import pandas as pd 
 import joblib 
+import os
 
 def train():
     data=pd.read_csv('data/Iris.csv')
@@ -10,6 +11,7 @@ def train():
     model=RandomForestClassifier()
     model.fit(X,Y)
     
+    os.makedirs("model",exist_ok=True)
     joblib.dump(model,"model/model.pkl")
 
 if __name__=="__main__":
